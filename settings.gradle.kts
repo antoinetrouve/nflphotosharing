@@ -21,3 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "NFL Photo Sharing"
 include(":app")
+include(":domain")
+include(":data")
