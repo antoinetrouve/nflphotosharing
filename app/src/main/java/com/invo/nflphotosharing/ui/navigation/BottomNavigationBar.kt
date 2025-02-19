@@ -22,23 +22,25 @@ fun BottomNavigationBar(navController: NavController, modifier: Modifier = Modif
     ) {
         bottomNavItems.forEach { item ->
             val isSelected = currentRoute == item.route
-            NavigationBarItem(
-                icon = { Icon(imageVector = item.icon, contentDescription = item.label) },
-                selected = isSelected,
-                onClick = {
-                    if (currentRoute != item.route) {
-                        navController.navigate(item.route) {
-                            launchSingleTop = true
-                            restoreState = true
+            item.icon?.let {
+                NavigationBarItem(
+                    icon = { Icon(imageVector = item.icon, contentDescription = item.label) },
+                    selected = isSelected,
+                    onClick = {
+                        if (currentRoute != item.route) {
+                            navController.navigate(item.route) {
+                                launchSingleTop = true
+                                restoreState = true
+                            }
                         }
-                    }
-                },
-                colors = NavigationBarItemDefaults.colors(
-                    selectedIconColor = Color.White,
-                    unselectedIconColor = Color.Gray,
-                    indicatorColor = Color.Transparent
+                    },
+                    colors = NavigationBarItemDefaults.colors(
+                        selectedIconColor = Color.White,
+                        unselectedIconColor = Color.Gray,
+                        indicatorColor = Color.Transparent
+                    )
                 )
-            )
+            }
         }
     }
 }
