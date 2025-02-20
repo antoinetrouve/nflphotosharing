@@ -66,7 +66,8 @@ class MainActivity : ComponentActivity() {
                     Scaffold(
                         modifier = Modifier.fillMaxSize(),
                         bottomBar = {
-                            if (state.isUserLoggedIn || navController.currentBackStackEntryAsState().value?.destination?.route in bottomNavItems.map { it.route }) {
+                            val currentRoute = navController.currentBackStackEntryAsState().value?.destination?.route
+                            if (currentRoute != Screen.Login.route && (state.isUserLoggedIn || currentRoute in bottomNavItems.map { it.route })) {
                                 BottomNavigationBar(navController)
                             }
                         }

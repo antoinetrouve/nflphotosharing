@@ -16,7 +16,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val getRandomHomeImagesUseCase: GetMemoriesUseCase
+    private val getMemoriesUseCase: GetMemoriesUseCase
 ) : AbstractHomeViewModel() {
 
     private val _state = MutableStateFlow(State())
@@ -28,7 +28,7 @@ class HomeViewModel @Inject constructor(
     override fun loadImages() {
         _state.value = _state.value.copy(uiState = HomeUiState.Loading)
         viewModelScope.launch {
-            when (val result = getRandomHomeImagesUseCase()) {
+            when (val result = getMemoriesUseCase()) {
                 is MemoriesResult.Success -> {
                     _state.value = _state.value.copy(
                         memories = result.memories.map {
