@@ -28,4 +28,8 @@ class UserRepositoryImpl @Inject constructor(
             else -> Result.success(Unit)
         }
     }
+
+    override fun getUsername(): String {
+        return mockUsername
+    }
 }

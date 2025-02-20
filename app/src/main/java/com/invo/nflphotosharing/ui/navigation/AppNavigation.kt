@@ -8,6 +8,7 @@ import androidx.navigation.compose.composable
 import com.invo.nflphotosharing.ui.feature.addMemory.AddMemoryScreen
 import com.invo.nflphotosharing.ui.feature.login.LoginScreen
 import com.invo.nflphotosharing.ui.feature.home.HomeScreen
+import com.invo.nflphotosharing.ui.feature.profile.ProfileScreen
 
 @Composable
 fun AppNavigation(navController: NavHostController, modifier: Modifier = Modifier, startDestination: Screen) {
@@ -29,6 +30,15 @@ fun AppNavigation(navController: NavHostController, modifier: Modifier = Modifie
             )
         }
         composable(Screen.Highlight.route) {  }
-        composable(Screen.Profile.route) {  }
+        composable(Screen.Profile.route) {
+            ProfileScreen(
+                modifier = modifier,
+                onLogout = {
+                    navController.navigate(Screen.Login.route) {
+                        popUpTo(Screen.Profile.route) { inclusive = true }
+                    }
+                }
+            )
+        }
     }
 }

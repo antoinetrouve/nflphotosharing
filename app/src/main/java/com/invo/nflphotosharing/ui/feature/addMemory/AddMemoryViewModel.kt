@@ -1,5 +1,7 @@
 package com.invo.nflphotosharing.ui.feature.addMemory
 
+import android.app.Application
+import android.content.Intent
 import android.net.Uri
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -14,7 +16,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class AddMemoryViewModel @Inject constructor(
-    private val saveUserMemoryUseCase: SaveUserMemoryUseCase
+    private val saveUserMemoryUseCase: SaveUserMemoryUseCase,
+    private val application: Application
 ) : AbstractAddMemoryViewModel() {
 
     private val _selectedImageUri = MutableStateFlow<Uri?>(null)
@@ -34,6 +37,7 @@ class AddMemoryViewModel @Inject constructor(
             _uiState.value = _uiState.value.copy(uiState = AddMemoryUiState.Saving)
 
             selectedImageUri.value?.let { uri ->
+                persistUri(uri)
                 saveUserMemoryUseCase(uri)
                     .onSuccess {
                         _uiState.value = _uiState.value.copy(uiState = AddMemoryUiState.Success, sideEffect = SideEffect.GoToProfile)
@@ -44,6 +48,13 @@ class AddMemoryViewModel @Inject constructor(
                     }
             }
         }
+    }
+
+    private fun persistUri(uri: Uri) {
+        application.contentResolver.takePersistableUriPermission(
+            uri,
+            Intent.FLAG_GRANT_READ_URI_PERMISSION
+        )
     }
 
     data class State(
