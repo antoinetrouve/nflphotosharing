@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="login_error_invalid_username">Identifiant invalide</string>
+    <string name="login_error_invalid_password">Mot de passe erroné</string>
+    <string name="login_error_generic">Impossible de se connecter</string>
+    <string name="login_username">Identifiant</string>
+    <string name="login_password">Mot de passe</string>
+    <string name="login_cta">Se connecter</string>
+</resources>
