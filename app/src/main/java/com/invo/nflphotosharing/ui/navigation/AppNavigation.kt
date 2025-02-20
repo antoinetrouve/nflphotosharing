@@ -14,7 +14,11 @@ fun AppNavigation(navController: NavHostController, modifier: Modifier = Modifie
         navController = navController,
         startDestination = startDestination.route
     ) {
-        composable(Screen.Login.route) { LoginScreen(modifier = modifier) }
+        composable(Screen.Login.route) { LoginScreen {
+            navController.navigate(Screen.Home.route) {
+                popUpTo(Screen.Login.route) { inclusive = true }
+            }
+        } }
         composable(Screen.Home.route) { PhotoListScreen(modifier = modifier) }
         composable(Screen.Discovery.route) {  }
         composable(Screen.Add.route) {  }
