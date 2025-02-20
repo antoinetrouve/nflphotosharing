@@ -1,4 +1,4 @@
-package com.invo.nflphotosharingdata.local
+package com.invo.nflphotosharingdata.database
 
 import android.content.Context
 import androidx.datastore.core.DataStore
