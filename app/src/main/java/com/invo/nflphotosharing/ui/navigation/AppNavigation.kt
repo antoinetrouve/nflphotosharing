@@ -22,14 +22,12 @@ fun AppNavigation(navController: NavHostController, modifier: Modifier = Modifie
             }
         } }
         composable(Screen.Home.route) { HomeScreen(modifier = modifier) }
-        composable(Screen.Discovery.route) {  }
         composable(Screen.Add.route) {
             AddMemoryScreen(
                 modifier = modifier,
                 onPhotoSaved = { navController.navigate(Screen.Profile.route) }
             )
         }
-        composable(Screen.Highlight.route) {  }
         composable(Screen.Profile.route) {
             ProfileScreen(
                 modifier = modifier,
