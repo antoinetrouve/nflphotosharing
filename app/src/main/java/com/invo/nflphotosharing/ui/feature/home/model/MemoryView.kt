@@ -1,4 +1,4 @@
-package com.invo.nflphotosharing.ui.feature.photo.model
+package com.invo.nflphotosharing.ui.feature.home.model
 
 import androidx.annotation.DrawableRes
 import com.invo.nflphotosharingdomain.model.Memory

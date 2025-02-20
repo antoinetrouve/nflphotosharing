@@ -32,7 +32,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.invo.nflphotosharing.R
 import com.invo.nflphotosharing.ui.designsystem.component.InputField
 import com.invo.nflphotosharing.ui.designsystem.component.PrimaryButton
-import com.invo.nflphotosharing.ui.theme.NFLPhotoSharingTheme
+import com.invo.nflphotosharing.ui.designsystem.theme.NFLPhotoSharingTheme
 import com.invo.nflphotosharing.ui.feature.login.LoginViewModel.LoginUiState
 
 @Composable

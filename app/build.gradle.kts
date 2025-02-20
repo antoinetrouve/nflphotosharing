@@ -55,6 +55,7 @@ dependencies {
 
     implementation(libs.coil.compose)
     implementation(libs.coil.network.okhttp)
+    implementation(libs.coil.kt.coil.compose)
 
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
