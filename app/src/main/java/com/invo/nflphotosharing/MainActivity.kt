@@ -5,20 +5,21 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.invo.nflphotosharing.ui.navigation.AppNavigation
 import com.invo.nflphotosharing.ui.navigation.BottomNavigationBar
 import com.invo.nflphotosharing.ui.navigation.Screen
-import com.invo.nflphotosharing.ui.designsystem.theme.NFLPhotoSharingTheme
 import com.invo.nflphotosharing.ui.navigation.bottomNavItems
+import com.invo.nflphotosharing.ui.theme.NFLPhotoSharingTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -66,8 +67,8 @@ class MainActivity : ComponentActivity() {
                         AppNavigation(
                             navController = navController,
                             modifier = Modifier
-                                .padding(innerPadding)
-                                .navigationBarsPadding(),
+                                .background(Color.Black)
+                                .padding(innerPadding),
                             startDestination = if (state.isUserLoggedIn) Screen.Home else Screen.Login
                         )
                     }

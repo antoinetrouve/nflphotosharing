@@ -1,7 +1,5 @@
 package com.invo.nflphotosharing
 
-import android.util.Log
-import android.view.WindowInsets.Side
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.lifecycle.ViewModel
@@ -11,9 +9,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.lastOrNull
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -21,7 +17,7 @@ import javax.inject.Inject
 @HiltViewModel
 class SplashViewModel @Inject constructor(
     private val getUserSessionUseCase: GetUserSessionUseCase
-): AbstractSplashViewModel() {
+) : AbstractSplashViewModel() {
 
     private val _state = MutableStateFlow(State())
     val state = _state.asStateFlow()
@@ -31,7 +27,7 @@ class SplashViewModel @Inject constructor(
 
     override fun loadUserSession() {
         viewModelScope.launch {
-            delay(1000)
+            delay(1000) // Simulate some loading time
             val isUserLoggedIn = getUserSessionUseCase().first()
             _state.value = _state.value.copy(
                 screenState = ScreenState.Success,

@@ -1,4 +1,4 @@
-package com.invo.nflphotosharing.ui.designsystem.theme
+package com.invo.nflphotosharing.ui.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme

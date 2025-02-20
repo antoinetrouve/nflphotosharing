@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">NFL Photo Sharing</string>
+    <string name="home_empty">"Pas d'image dans votre réseau. "</string>
 </resources>
