@@ -56,6 +56,7 @@ app/
 - **Architecture**: MVVM + Clean Architecture
 - **DI**: Hilt (Dependency Injection)
 - **Async**: Kotlin Coroutines + Flow
+- **Local Storage**: Preferences DataStore
 
 
 ## Getting Started
