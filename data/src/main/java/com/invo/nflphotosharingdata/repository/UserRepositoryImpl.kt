@@ -1,7 +1,6 @@
 package com.invo.nflphotosharingdata.repository
 
 import com.invo.nflphotosharingdata.database.UserPreferenceDataStore
-import com.invo.nflphotosharingdata.exception.NFLPhotoException
 import com.invo.nflphotosharingdata.exception.NFLPhotoException.AuthException.InvalidPasswordException
 import com.invo.nflphotosharingdata.exception.NFLPhotoException.AuthException.InvalidUsernameException
 import kotlinx.coroutines.delay

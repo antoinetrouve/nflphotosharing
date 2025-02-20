@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.runtime.Composable
@@ -18,6 +19,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -29,7 +32,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.invo.nflphotosharing.R
 import com.invo.nflphotosharing.ui.designsystem.component.InputField
 import com.invo.nflphotosharing.ui.designsystem.component.PrimaryButton
-import com.invo.nflphotosharing.ui.designsystem.theme.NFLPhotoSharingTheme
+import com.invo.nflphotosharing.ui.theme.NFLPhotoSharingTheme
 import com.invo.nflphotosharing.ui.feature.login.LoginViewModel.LoginUiState
 
 @Composable
@@ -57,9 +60,10 @@ fun LoginScreen(
         verticalArrangement = Arrangement.Center
     ) {
         Image(
-            painter = painterResource(id = R.drawable.ic_launcher_foreground),
+            painter = painterResource(id = R.drawable.logo),
             contentDescription = "NFL Logo",
-            modifier = Modifier.size(120.dp)
+            contentScale = ContentScale.Crop ,
+            modifier = Modifier.size(150.dp).clip(CircleShape)
         )
         Spacer(modifier = Modifier.height(24.dp))
 
@@ -110,7 +114,6 @@ fun LoginScreenPreview() {
             override fun getState(): LoginViewModel.State {
                 return LoginViewModel.State()
             }
-
             override fun login(username: String, password: String) {}
             override fun consumeSideEffect() {}
         })

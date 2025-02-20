@@ -7,8 +7,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.invo.nflphotosharing.ui.designsystem.theme.NFLBlue
-import com.invo.nflphotosharing.ui.designsystem.theme.NFLWhite
+import com.invo.nflphotosharing.ui.theme.NFLBlue
+import com.invo.nflphotosharing.ui.theme.NFLWhite
 
 @Composable
 fun PrimaryButton(
