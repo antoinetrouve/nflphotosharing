@@ -1,4 +1,4 @@
-package com.invo.nflphotosharing.ui.feature.photo
+package com.invo.nflphotosharing.ui.feature.home
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -18,9 +18,9 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.invo.nflphotosharing.R
 import com.invo.nflphotosharing.ui.designsystem.component.MemoryCard
-import com.invo.nflphotosharing.ui.feature.photo.model.MemoryView
-import com.invo.nflphotosharing.ui.theme.NFLPhotoSharingTheme
-import com.invo.nflphotosharing.ui.theme.NFLWhite
+import com.invo.nflphotosharing.ui.feature.home.model.MemoryView
+import com.invo.nflphotosharing.ui.designsystem.theme.NFLPhotoSharingTheme
+import com.invo.nflphotosharing.ui.designsystem.theme.NFLWhite
 
 @Composable
 fun HomeScreen(

@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">NFL Photo Sharing</string>
     <string name="home_empty">"Pas d'image dans votre réseau. "</string>
+    <string name="add_select_cta">Sélectionner une Photo</string>
+    <string name="add_preview_card_title">preview</string>
+    <string name="add_validate_cta">Partager</string>
 </resources>

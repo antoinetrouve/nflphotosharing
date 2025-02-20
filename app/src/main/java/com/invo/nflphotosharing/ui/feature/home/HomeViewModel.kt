@@ -1,19 +1,15 @@
-package com.invo.nflphotosharing.ui.feature.photo
+package com.invo.nflphotosharing.ui.feature.home
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.invo.nflphotosharing.R
-import com.invo.nflphotosharing.ui.feature.photo.model.MemoryView
-import com.invo.nflphotosharing.ui.feature.photo.model.toView
-import com.invo.nflphotosharing.ui.feature.photo.model.toViewList
-import com.invo.nflphotosharingdomain.model.Memory
+import com.invo.nflphotosharing.ui.feature.home.model.MemoryView
 import com.invo.nflphotosharingdomain.usecase.GetMemoriesUseCase
 import com.invo.nflphotosharingdomain.usecase.MemoriesResult
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject

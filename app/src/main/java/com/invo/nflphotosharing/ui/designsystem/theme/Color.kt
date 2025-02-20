@@ -1,4 +1,4 @@
-package com.invo.nflphotosharing.ui.theme
+package com.invo.nflphotosharing.ui.designsystem.theme
 
 import androidx.compose.ui.graphics.Color
 

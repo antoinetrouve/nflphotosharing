@@ -1,5 +1,10 @@
 package com.invo.nflphotosharing
 
+import android.Manifest.permission.READ_EXTERNAL_STORAGE
+import android.Manifest.permission.READ_MEDIA_IMAGES
+import android.Manifest.permission.READ_MEDIA_VIDEO
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -12,6 +17,8 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
@@ -19,7 +26,7 @@ import com.invo.nflphotosharing.ui.navigation.AppNavigation
 import com.invo.nflphotosharing.ui.navigation.BottomNavigationBar
 import com.invo.nflphotosharing.ui.navigation.Screen
 import com.invo.nflphotosharing.ui.navigation.bottomNavItems
-import com.invo.nflphotosharing.ui.theme.NFLPhotoSharingTheme
+import com.invo.nflphotosharing.ui.designsystem.theme.NFLPhotoSharingTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -29,7 +36,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         val splashScreen = installSplashScreen()
         super.onCreate(savedInstanceState)
-
+        requestPermissions()
         splashScreen.setKeepOnScreenCondition {
             splashViewModel.state.value.screenState == SplashViewModel.ScreenState.Loading
         }
@@ -75,5 +82,25 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+    }
+
+    private fun requestPermissions() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (ContextCompat.checkSelfPermission(
+                    this,
+                    READ_EXTERNAL_STORAGE
+                ) != PackageManager.PERMISSION_GRANTED
+            ) {
+                ActivityCompat.requestPermissions(
+                    this,
+                    arrayOf(READ_MEDIA_IMAGES, READ_EXTERNAL_STORAGE, READ_MEDIA_VIDEO),
+                    READ_MEDIA_IMAGES_REQUEST_CODE
+                )
+            }
+        }
+    }
+
+    companion object {
+        private const val READ_MEDIA_IMAGES_REQUEST_CODE = 1
     }
 }

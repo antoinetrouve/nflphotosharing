@@ -15,8 +15,8 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.invo.nflphotosharing.ui.theme.NFLRed
-import com.invo.nflphotosharing.ui.theme.NFLWhite
+import com.invo.nflphotosharing.ui.designsystem.theme.NFLRed
+import com.invo.nflphotosharing.ui.designsystem.theme.NFLWhite
 
 @Composable
 fun InputField(

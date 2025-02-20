@@ -1,5 +1,6 @@
 package com.invo.nflphotosharingdata.di
 
+import com.invo.nflphotosharingdata.database.UserMemoryDataStore
 import com.invo.nflphotosharingdata.database.UserPreferenceDataStore
 import com.invo.nflphotosharingdata.repository.MemoryRepository
 import com.invo.nflphotosharingdata.repository.MemoryRepositoryImpl
@@ -16,7 +17,9 @@ import javax.inject.Singleton
 object DataModule {
     @Provides
     @Singleton
-    fun provideMemoryRepository(): MemoryRepository = MemoryRepositoryImpl()
+    fun provideMemoryRepository(
+        userMemoryDataStore: UserMemoryDataStore
+    ): MemoryRepository = MemoryRepositoryImpl(userMemoryDataStore)
 
     @Singleton
     @Provides
