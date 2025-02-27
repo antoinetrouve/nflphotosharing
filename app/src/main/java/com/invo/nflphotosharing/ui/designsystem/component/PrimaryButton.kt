@@ -12,6 +12,7 @@ import com.invo.nflphotosharing.ui.designsystem.theme.NFLWhite
 
 @Composable
 fun PrimaryButton(
+    modifier: Modifier,
     text: String,
     onClick: () -> Unit,
     enabled: Boolean = true
@@ -23,7 +24,7 @@ fun PrimaryButton(
             contentColor = NFLWhite
         ),
         enabled = enabled,
-        modifier = Modifier.fillMaxWidth()
+        modifier = modifier
     ) {
         Text(text = text)
     }
@@ -31,6 +32,7 @@ fun PrimaryButton(
 
 @Composable
 fun SecondaryButton(
+    modifier: Modifier,
     text: String,
     onClick: () -> Unit,
     enabled: Boolean = true
@@ -43,7 +45,7 @@ fun SecondaryButton(
         ),
         border = ButtonDefaults.outlinedButtonBorder,
         enabled = enabled,
-        modifier = Modifier.fillMaxWidth()
+        modifier = modifier
     ) {
         Text(text = text)
     }
@@ -53,6 +55,7 @@ fun SecondaryButton(
 @Composable
 fun PrimaryButtonPreview() {
     PrimaryButton(
+        modifier = Modifier.fillMaxWidth(),
         text = "Button",
         onClick = { }
     )
@@ -62,6 +65,7 @@ fun PrimaryButtonPreview() {
 @Composable
 fun SecondaryButtonPreview() {
     SecondaryButton(
+        modifier = Modifier.fillMaxWidth(),
         text = "Button",
         onClick = { }
     )

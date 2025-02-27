@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -98,6 +99,7 @@ fun LoginScreen(
         Spacer(modifier = Modifier.height(24.dp))
 
         PrimaryButton(
+            modifier = Modifier.fillMaxWidth(),
             text = stringResource(R.string.login_cta),
             onClick = { viewModel.login(username, password) },
             enabled = state.uiState !is LoginUiState.Loading

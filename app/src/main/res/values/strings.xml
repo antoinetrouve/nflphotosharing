@@ -4,4 +4,7 @@
     <string name="add_select_cta">Sélectionner une Photo</string>
     <string name="add_preview_card_title">preview</string>
     <string name="add_validate_cta">Partager</string>
+    <string name="add_take_photo_cta">Take Photo</string>
+    <string name="add_select_from_gallery_cta">Gallery</string>
+    <string name="camera_permission_rationale">Camera permission is needed to take photos. Please grant the permission in app settings.</string>
 </resources>

@@ -34,12 +34,20 @@ class ProfileViewModel @Inject constructor(
             _state.value = _state.value.copy(uiState = ProfileUiState.Loading)
             when (val result = getProfileUseCase()) {
                 is ProfileResult.Success -> {
-                    // Take persistent permissions for each URI
+                    // Take persistent permissions for each URI only for content URIs (Gallery
                     result.memories.forEach { uri ->
-                        application.contentResolver.takePersistableUriPermission(
-                            uri,
-                            Intent.FLAG_GRANT_READ_URI_PERMISSION
-                        )
+                        // Only take persistable permissions for content:// URIs (gallery)
+                        if (uri.scheme == "content" && !uri.toString().startsWith("content://${application.packageName}")) {
+                            try {
+                                application.contentResolver.takePersistableUriPermission(
+                                    uri,
+                                    Intent.FLAG_GRANT_READ_URI_PERMISSION
+                                )
+                            } catch (e: SecurityException) {
+                                Log.w("ProfileViewModel", "Could not take persistable permission for $uri: ${e.message}")
+                                _state.value = _state.value.copy(uiState = ProfileUiState.Error, username = result.username)
+                            }
+                        }
                     }
                     Log.d("ProfileViewModel", "Success: ${result.memories}")
                     _state.value = _state.value.copy(
